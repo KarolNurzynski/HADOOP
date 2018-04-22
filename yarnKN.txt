@@ -1,0 +1,24 @@
+laczenie z HDFS:
+
+ssh knurzynski@hdp1
+password: knurzynski
+
+Panel admin w Ambari:
+http://hdp1:8080
+Login student, Haslo student123
+
+1. Tworze projekt jar (clear+ install z zakladki Maven Projects/Lifecycle)
+
+2. W konsoli lokalnej wrzucam projekt do HDFSa:
+
+scp -r mapreduce-1.0-SNAPSHOT-jar-with-dependencies.jar knurzynski@hdp1://home/knurzynski
+
+
+3. W konsoli HDFS uruchamiam program jar:
+
+yarn jar mapreduce-1.0-SNAPSHOT-jar-with-dependencies.jar pl.com.sages.hadoop.mapreduce.wordcount.WordCountRunner /dane/lektury/lektury-one-file /user/knurzynski/wyniki
+
+(uruchamiam joba - program jar w yarnie - a konkretnie jego klase WordCountRunner - sciezke dotej klasy otrzymalem klikajac prawym na nazwe klasy i copy reference). Potem mamy sciezke wejscia i wyjscia (plik wynikowy)
+
+
+
